@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>Wordpress Percobaan</title>
+</head>
+<body>
+    <div class="bg-gradient-to-r from-blue-200 via-blue-50 to-blue-200 min-h-screen">
+        <header class="bg-blue-900 text-white">
+            <div class="mx-auto w-full flex justify-between items-center p-4 px-16">
+              <div class="logo">
+                <!-- Logo -->
+                <img src="../img/argos.png" alt="Argos Logo" class="h-10">
+              </div>
+              <nav>
+                <ul class="flex space-x-4 relative">
+                  <li class="relative">
+                    <a href="#" class="hover:text-blue-300">Tankstations</a>
+                  </li>
+                  <li class="relative">
+                    <a href="#" class="hover:text-blue-300">Voordeelacties</a>
+                  </li>
+                  <!-- Menu Zakelijk dengan dropdown klik -->
+                  <li class="relative">
+                    <button id="zakelijk-menu" class="flex items-center hover:text-blue-300 focus:outline-none">
+                      Zakelijk
+                      <!-- Tanda panah -->
+                       <svg class="w-4 h-4 ml-2 transform transition-transform" id="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                       </svg>
+                    </button>
+                    <!-- Sub-menu, disembunyikan secara default -->
+                    <ul id="sub-menu" class="absolute left-0 mt-2 hidden bg-white text-gray-800 w-[max-content]">
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Zakelijke 123</a></li>
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Zakelijke 2</a></li>
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Zakelijke 3456789</a></li>
+                    </ul>
+                  </li>
+                  <li class="relative">
+                    <a href="#" class="hover:text-blue-300">Je favorieten</a>
+                  </li>
+                  <li class="relative">
+                    <button id="overargos-menu" class="flex items-center hover:text-blue-300 focus:outline-none">
+                      Over Argos
+                      <!-- Tanda panah -->
+                      <svg class="w-4 h-4 ml-2 transform transition-transform" id="overargos-arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <!-- Sub-menu, disembunyikan secara default -->
+                    <ul id="overargos-sub-menu" class="absolute left-0 mt-2 hidden bg-white text-gray-800 w-[max-content]">
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Over Argos 123</a></li>
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Over Argos 2</a></li>
+                      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Over Argos 3456789</a></li>
+                    </ul>
+                  </li>
+                  <li class="relative">
+                    <a href="#" class="hover:text-blue-300">Contact</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <!-- Garis Hijau -->
+            <div class="h-px bg-green-500"></div>
+        </header>
+
+        <section class="py-16 px-16">
+            <div class="flex w-full">
+              <div class="w-2/5 border border-black">
+                <h1 class="text-7xl font-bold text-blue-950">Lorem ipsum</h1>
+                <p class="my-8 font-bold text-blue-950">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis iure est illum natus ullam a beatae culpa eos reprehenderit nam pariatur laborum, maiores aut blanditiis ut sequi quibusdam tempore mollitia?</p>
+              </div>
+              <div class="w-3/5 border border-black">
+                TES 456
+              </div>
+            </div>
+        </section>          
+    </div>
+
+    <script>
+      // Dapatkan elemen tombol dan sub-menu
+      const zakelijkMenu = document.getElementById('zakelijk-menu');
+      const subMenu = document.getElementById('sub-menu');
+      const arrowIcon = document.getElementById('arrow-icon');
+
+      const overargosMenu = document.getElementById('overargos-menu');
+      const overargosSubMenu = document.getElementById('overargos-sub-menu');
+      const overargosArrowIcon = document.getElementById('overargos-arrow-icon');
+  
+      // Event listener untuk klik
+      zakelijkMenu.addEventListener('click', () => {
+        // Mencegah event dari bubbling ke document
+        event.stopPropagation();
+          
+        // Toggle class hidden pada sub-menu
+        subMenu.classList.toggle('hidden');
+  
+        // Toggle rotasi panah
+        arrowIcon.classList.toggle('-rotate-90');
+
+        hiddenSubMenu2();
+      });
+
+      // Event listener untuk klik
+      overargosMenu.addEventListener('click', () => {
+        // Mencegah event dari bubbling ke document
+        event.stopPropagation();
+          
+        // Toggle class hidden pada sub-menu
+        overargosSubMenu.classList.toggle('hidden');
+  
+        // Toggle rotasi panah
+        overargosArrowIcon.classList.toggle('-rotate-90');
+
+        hiddenSubMenu1();
+      });
+
+      // Event listener untuk klik di seluruh dokumen
+      document.addEventListener('click', () => {
+        hiddenSubMenu1();
+        hiddenSubMenu2();
+      });
+
+      function hiddenSubMenu1() {
+        // Sembunyikan sub-menu dan kembalikan panah ke posisi semula
+        if (!subMenu.classList.contains('hidden')) {
+          subMenu.classList.add('hidden');
+          arrowIcon.classList.remove('-rotate-90');
+        }
+      };
+
+      function hiddenSubMenu2() {
+        if (!overargosSubMenu.classList.contains('hidden')) {
+          overargosSubMenu.classList.add('hidden');
+          overargosArrowIcon.classList.remove('-rotate-90');
+        };
+      }
+    </script>
+</body>
+</html>
