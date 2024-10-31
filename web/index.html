@@ -67,7 +67,7 @@
             <div class="h-px bg-green-500"></div>
         </header>
 
-        <div class="flex flex-col mx-16 mt-16 border border-black">
+        <div class="flex flex-col mx-16 mt-16">
           <div class="flex flex-row">
             <div class="" style="width: 40%;">
               <h1 class="text-7xl font-bold text-blue-950">Lorem ipsum</h1>
@@ -82,91 +82,17 @@
               </div>
             </div>
 
-            <!-- Carousel Items -->
-            <div class="border border-black carousel-inner overflow-hidden relative w-full h-full" style="width: 60%;">
-              <div class="carousel-item absolute w-full h-full transition-transform duration-500 ease-in-out">
-                <img src="../img/Slide1.png" class="w-full h-full object-cover" alt="Slide 1">
-              </div>
+            <div class="relative shadow-lg rounded-lg overflow-hidden" style="width: 60%;">
+              <!-- Carousel Container -->
+               <div class="carousel flex overflow-hidden" style="height: 400px;">
+                <img src="../img/Slide1.png" alt="Gambar 1" class="h-full object-cover transition-transform duration-500 ease-in-out">
+               </div>
+               <!-- Carousel Container -->
             </div>
-            <!-- Carousel Items -->
-
-            <!-- Left and Right Arrows -->
-            <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-              &#9664;
-            </button>
-            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md">
-              &#9654;
-            </button>
-            <!-- Left and Right Arrows -->
-            
-            <!-- Dots Indicators -->
-            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-              <button class="w-2 h-2 rounded-full bg-gray-400"></button>
-            </div>
-            <!-- Dots Indicators -->
           </div>
+
           <div class="border border-black">03</div>
         </div>
-
-        <section class="py-16 px-16">
-            <div class="flex w-full">
-              <div class="w-2/5">
-                <h1 class="text-7xl font-bold text-blue-950">Lorem ipsum</h1>
-                <p class="my-8 font-bold text-blue-950">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis iure est illum natus ullam a beatae culpa eos reprehenderit nam pariatur laborum, maiores aut blanditiis ut sequi quibusdam tempore mollitia?</p>
-                <div class="flex justify-start space-x-8">
-                  <button class="bg-red-500 text-white font-semibold py-2 px-4 rounded-tr-lg rounded-br-lg rounded-bl-lg shadow-md hover:bg-red-600 transition">
-                    Bekijk de actie
-                  </button>
-                  <button class="bg-red-500 text-white font-semibold py-2 px-4 rounded-tr-lg rounded-br-lg rounded-bl-lg shadow-md hover:bg-red-600 transition">
-                    Zoek je locatie
-                  </button>
-                </div>
-              </div>
-              <div class="w-3/5 border border-black">
-                <div id="default-carousel" class="relative w-full" data-carousel="slide">
-                  <!-- Carousel wrapper -->
-                  <div class="relative h-56 overflow-hidden rounded-lg md:h96">
-                    <!-- Item -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="../img/Slide1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="../img/Slide1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="../img/Slide1.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    </div>
-                    <!-- Item -->
-                  </div>
-
-                  <!-- Slider indicators -->
-                  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                  </div>
-
-                  <!-- Slider controls -->
-                  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                  </button>
-                  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-        </section>          
     </div>
 
     <script>
