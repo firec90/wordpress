@@ -1,144 +1,86 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Argos</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Tambahan styling untuk dot navigasi */
-    .dot {
-      height: 10px;
-      width: 10px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 4px;
-    }
-    .active {
-      background-color: #717171;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel with Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Carousel and dot styles */
+      .carousel-image {
+          width: 100%; /* Each image takes the full width of the container */
+          flex-shrink: 0; /* Prevent images from shrinking */
+      }
+
+      .dot.active {
+          background-color: #4A5568; /* Darker color when active */
+      }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-  <!-- Navbar -->
-  <nav class="bg-blue-900 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <div class="text-white font-bold text-lg">Argos</div>
-      <ul class="flex space-x-4 text-white">
-        <li><a href="#" class="hover:text-green-300">Tankstations</a></li>
-        <li><a href="#" class="hover:text-green-300">Voordeelacties</a></li>
-        <li><a href="#" class="hover:text-green-300">Zakelijk</a></li>
-        <li><a href="#" class="hover:text-green-300">Je favorieten</a></li>
-        <li><a href="#" class="hover:text-green-300">Over Argos</a></li>
-        <li><a href="#" class="hover:text-green-300">Kontak</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Carousel (Dua Kolom) -->
-  <section class="container mx-auto mt-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-      
-      <!-- Kolom 1: Judul, Deskripsi, dan Tombol -->
-      <div class="p-8">
-        <h1 class="text-4xl font-bold text-blue-900">Lorem ipsum</h1>
-        <p class="text-gray-600 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <div class="mt-6">
-          <button class="bg-red-600 text-white px-4 py-2 rounded-md mr-4">Lihat Aksi</button>
-          <button class="bg-red-600 text-white px-4 py-2 rounded-md">Cari Lokasi</button>
+    <div class="relative w-full max-w-lg mx-auto overflow-hidden">
+        <!-- Carousel Wrapper -->
+        <div class="carousel flex transition-transform duration-500 ease-out w-full">
+            <!-- Images Container with Fixed Width -->
+            <img src="../img//Slide1.png" alt="Image 1" class="carousel-image w-full h-64 object-cover flex-shrink-0">
+            <img src="../img//Slide2.png" alt="Image 2" class="carousel-image w-full h-64 object-cover flex-shrink-0">
+            <img src="../img//Slide3.png" alt="Image 3" class="carousel-image w-full h-64 object-cover flex-shrink-0">
         </div>
-      </div>
-      
-      <!-- Kolom 2: Carousel Gambar -->
-      <div class="relative bg-white shadow-lg rounded-lg overflow-hidden">
-
-        <!-- Carousel Container -->
-        <div class="carousel flex overflow-hidden" style="height: 400px;">
-          <img src="https://via.placeholder.com/600x400" alt="Gambar 1" class="w-full object-cover transition-transform duration-500 ease-in-out">
-          <img src="https://via.placeholder.com/600x400" alt="Gambar 2" class="w-full object-cover transition-transform duration-500 ease-in-out">
-          <img src="https://via.placeholder.com/600x400" alt="Gambar 3" class="w-full object-cover transition-transform duration-500 ease-in-out">
-        </div>
-
-        <!-- Tombol Navigasi Kiri dan Kanan -->
-        <button class="absolute top-1/2 transform -translate-y-1/2 left-4 bg-white p-2 rounded-full shadow-lg" id="prevBtn">
-          <span>&lt;</span>
-        </button>
-        <button class="absolute top-1/2 transform -translate-y-1/2 right-4 bg-white p-2 rounded-full shadow-lg" id="nextBtn">
-          <span>&gt;</span>
-        </button>
-
-        <!-- Dot Indicators -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-      
+        
+        <!-- Navigation Buttons -->
+        <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-r" id="prevButton">‹</button>
+        <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1 rounded-l" id="nextButton">›</button>
     </div>
-  </section>
 
-  <!-- Grid Section -->
-  <section class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src="https://via.placeholder.com/400x300" alt="Tankstation zoeken">
-      <div class="p-6">
-        <h2 class="text-2xl font-bold text-blue-900">Tankstation zoeken</h2>
-      </div>
+    <!-- Dots Navigation -->
+    <div class="flex justify-center space-x-2 mt-4" id="dotContainer">
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 focus:outline-none" data-index="0"></button>
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 focus:outline-none" data-index="1"></button>
+        <button class="dot w-3 h-3 rounded-full bg-gray-300 focus:outline-none" data-index="2"></button>
     </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src="https://via.placeholder.com/400x300" alt="Saya ingin kartu bahan bakar">
-      <div class="p-6">
-        <h2 class="text-2xl font-bold text-blue-900">Saya ingin kartu bahan bakar</h2>
-      </div>
-    </div>
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-      <img src="https://via.placeholder.com/400x300" alt="Saya ingin kartu pengisian daya">
-      <div class="p-6">
-        <h2 class="text-2xl font-bold text-blue-900">Saya ingin kartu pengisian daya</h2>
-      </div>
-    </div>
-  </section>
+    <script>
+      const carousel = document.querySelector('.carousel');
+      const images = carousel.querySelectorAll('img');
+      const dots = document.querySelectorAll('.dot');
+      let currentIndex = 0;
 
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel img');
-    const dots = document.querySelectorAll('.dot');
+      // Function to update carousel position
+      function updateCarousel() {
+          const offset = -currentIndex * 100;
+          carousel.style.transform = `translateX(${offset}%)`;
+          updateDots();
+      }
 
-    // Fungsi untuk memperbarui slide yang aktif
-    function updateSlide() {
-      slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+      // Function to update dot states
+      function updateDots() {
+          dots.forEach((dot, index) => {
+              dot.classList.toggle('active', index === currentIndex);
+          });
+      }
+
+      // Event listeners for next and previous buttons
+      document.getElementById('nextButton').addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % images.length;
+          updateCarousel();
       });
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
+
+      document.getElementById('prevButton').addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          updateCarousel();
       });
-    }
 
-    // Tombol next dan prev
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlide();
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlide();
-    });
-
-    // Klik pada dot untuk berpindah slide
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        currentSlide = index;
-        updateSlide();
+      // Event listeners for dot buttons
+      dots.forEach(dot => {
+          dot.addEventListener('click', (event) => {
+              currentIndex = parseInt(event.target.getAttribute('data-index'));
+              updateCarousel();
+          });
       });
-    });
 
-    // Inisialisasi pertama kali
-    updateSlide();
-  </script>
-
+      // Initialize carousel
+      updateCarousel();
+    </script>
 </body>
 </html>
